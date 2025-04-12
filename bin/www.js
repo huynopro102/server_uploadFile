@@ -25,9 +25,14 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port , () => {
+  console.log(`Server is running on port ${port}`);
+});
 server.on('error', onError);
 server.on('listening', onListening);
+
+const PORT = process.env.PORT || 4000;
+
 
 /**
  * Normalize a port into a number, string, or false.
